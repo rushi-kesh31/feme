@@ -45,7 +45,13 @@ export const courseImage = selector({
   key: 'courseImageState',
   get: ({ get }) => {
     const state = get(courseState);
-    return state.course ? state.course.imageLink : "";
+    if (state.course && state.course.imageLink) {
+      
+      return Array.isArray(state.course.imageLink) 
+        ? state.course.imageLink 
+        : [state.course.imageLink];
+    }
+    return []; 
   },
 });
 
