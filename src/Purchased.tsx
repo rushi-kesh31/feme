@@ -8,8 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import { pcourseState } from './store/atoms/pcourses';
+import { pcourseState, PCState } from './store/atoms/pcourses';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
+
 
 // Define types for course
 interface Course {
@@ -20,8 +21,7 @@ interface Course {
   imgageLink: string;
 }
 
-// Define PCourseState as an array of course IDs (strings)
-type PCourseState = string[];
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
