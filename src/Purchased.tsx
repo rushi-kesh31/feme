@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import { pcourseState, PCState } from './store/atoms/pcourses';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-
 // Define types for course
 interface Course {
   _id: string;
@@ -20,8 +19,6 @@ interface Course {
   price: number;
   imgageLink: string;
 }
-
-
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -58,13 +55,22 @@ function Purchased() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('https://feb-pi.vercel.app/admin/purchasedCourses', {
-        headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
-      });
-      setPcourses(res.data.purchasedCourses.map((course: Course) => course._id));
+      setPcourses((prevState) => ({ ...prevState, isLoading: true }));
+      try {
+        const res = await axios.get('https://feb-pi.vercel.app/admin/purchasedCourses', {
+          headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
+        });
+        setPcourses({
+          isLoading: false,
+          pcourse: res.data.purchasedCourses.map((course: Course) => course._id),
+        });
+      } catch (error) {
+        console.error('Error fetching purchased courses:', error);
+        setPcourses((prevState) => ({ ...prevState, isLoading: false }));
+      }
     };
     fetchData();
-  }, []);
+  }, [setPcourses]);
 
   return (
     <>
@@ -111,14 +117,19 @@ export function Todos({ title, description, price, link, id }: TodosProps) {
 interface TodosDivProps {
   courses: Course[];
 }
+
 function TodosDiv({ courses }: TodosDivProps) {
-  const purchasedCoursesIds = useRecoilValue<PCState>(pcourseState);
+  const purchasedCoursesState = useRecoilValue<PCState>(pcourseState);
+
+  if (purchasedCoursesState.isLoading) {
+    return <div>Loading purchased courses...</div>;
+  }
 
   return (
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
       <Grid container spacing={2}>
         {courses.map((course: Course) => {
-          return purchasedCoursesIds.pcourse.includes(course._id) ? ( // Fixed type inference
+          return purchasedCoursesState.pcourse.includes(course._id) ? (
             <Grid item xs={4} key={course._id}>
               <Item>
                 <Link to={`/${course._id}`} style={{ textDecoration: 'none' }}>
@@ -142,6 +153,5 @@ function TodosDiv({ courses }: TodosDivProps) {
     </div>
   );
 }
-
 
 export default Purchased;
