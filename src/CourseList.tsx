@@ -89,7 +89,7 @@ function TodosDiv({ courses }: { courses: Course[] }) {
                 <Link to={`/${course._id}`} style={{ textDecoration: 'none' }}>
                   <Card >
                     <CardContent>
-                      <Todos title={course.title} description={course.description} price={course.price} link={course.imgageLink} id={course._id} />
+                      <Todos title={course.title} description={course.description} price={course.price} link={course.imgageLink} />
                     </CardContent>
                   </Card>
                 </Link>
