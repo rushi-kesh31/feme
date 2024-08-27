@@ -31,7 +31,16 @@ function Course() {
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
 
-
+interface Course {
+  title: string;
+  description: string;
+  price: number;
+  imageLink: string;
+  published: boolean;
+  _id: string;
+  productd: string;
+  rating: number;
+}
 
 
   useEffect(() => {
@@ -39,7 +48,7 @@ function Course() {
       axios.get(`https://feb-pi.vercel.app/admin/courses`, {
         headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
       }).then((res) => {
-        const foundCourse = res.data.find(course => course._id === courseId);
+        const foundCourse = res.data.find((course:Course) => course._id === courseId);
         if (foundCourse) {
           setCourse({
             isLoading: false,
@@ -48,7 +57,7 @@ function Course() {
         }
       }).catch(error => {
         console.error("Error fetching course data:", error);
-        setCourse({ isLoading: false });
+        setCourse({ isLoading: false,course: null });
       });
     };
     func();
@@ -85,17 +94,17 @@ function Course() {
 
 </Typography>
 
-  <Button size="large" sx={{ width:200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   onClick={Purchase}  > Buy Now </Button>
+  <Button size="large" sx={{ width:200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   onClick={() => Purchase(courseId)}  > Buy Now </Button>
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
               <Slider {...settings}>
-                {img.map((imageLink, index) => (
-                  <div key={index}>
-                    <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
-                  </div>
-                ))}
+                {Array.isArray(img) && img.map((imageLink, index) => (
+  <div key={index}>
+    <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
+  </div>
+))}
               </Slider>
             </div>
           </Grid>
