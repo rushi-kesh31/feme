@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import './App.css'
 import Landing from './Landing'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Login from './Login'
-// import Register from './Register'
+import Login from './Login'
+import Register from './Register'
 // import Course from './Course'
 import axios from 'axios'
 import Navbar from './Navbar';
@@ -28,9 +28,9 @@ function App() {
                 <Route path="/" element={<Landing />} />
 {/*                 <Route path="/:courseId" element={<Course />} />
                 <Route path="/about" element={<CourseList />} />
-                <Route path="/purchased" element={<Purchased />} />
+                <Route path="/purchased" element={<Purchased />} /> */}
                 <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register/>} /> */}
+                <Route path="/register" element={<Register/>} /> 
             </Routes>
         </Router>
     </RecoilRoot>
