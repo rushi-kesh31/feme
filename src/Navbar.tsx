@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { userState } from './store/atoms/user.js';
+import { userState } from './store/atoms/user.ts';
 // import LoginSignupModal from './loginmodal.jsx';
 
 function Navbar() {
