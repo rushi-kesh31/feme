@@ -100,11 +100,11 @@ interface Course {
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
               <Slider {...settings}>
-                {Array.isArray(img) && img.map((imageLink, index) => (
-  <div key={index}>
-    <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
-  </div>
-))}
+                {img.map((imageLink, index) => (
+                  <div key={index}>
+                    <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
+                  </div>
+                ))}
               </Slider>
             </div>
           </Grid>
