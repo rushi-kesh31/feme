@@ -21,7 +21,7 @@ interface Course {
 }
 
 // Define PCourseState as an array of course IDs (strings)
-type PCourseState = string[];
+type PCState = string[];
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -44,7 +44,7 @@ const TextWrapper = styled('div')({
 
 function Purchased() {
   const [courses, setCourses] = useState<Course[]>([]);
-  const setPcourses = useSetRecoilState<PCourseState>(pcourseState);
+  const setPcourses = useSetRecoilState(pcourseState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,7 +113,7 @@ interface TodosDivProps {
 }
 
 function TodosDiv({ courses }: TodosDivProps) {
-  const purchasedCoursesIds = useRecoilValue<PCourseState>(pcourseState);
+  const purchasedCoursesIds = useRecoilValue<PCState>(pcourseState);
 
   return (
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
