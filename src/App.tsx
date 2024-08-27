@@ -11,7 +11,7 @@ import {
   RecoilRoot,
   useSetRecoilState,
 } from 'recoil';
-import { userState } from './store/atoms/user';
+import { userState } from './store/atoms/user.ts';
 // import CourseList from './CourseList';
 // import Purchased from './Purchased';
 
