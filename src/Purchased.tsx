@@ -111,7 +111,6 @@ export function Todos({ title, description, price, link, id }: TodosProps) {
 interface TodosDivProps {
   courses: Course[];
 }
-
 function TodosDiv({ courses }: TodosDivProps) {
   const purchasedCoursesIds = useRecoilValue<PCState>(pcourseState);
 
@@ -119,13 +118,19 @@ function TodosDiv({ courses }: TodosDivProps) {
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
       <Grid container spacing={2}>
         {courses.map((course: Course) => {
-          return purchasedCoursesIds.pcourse.includes(course._id) ? (
+          return purchasedCoursesIds.pcourse.includes(course._id) ? ( // Fixed type inference
             <Grid item xs={4} key={course._id}>
               <Item>
                 <Link to={`/${course._id}`} style={{ textDecoration: 'none' }}>
                   <Card>
                     <CardContent>
-                      <Todos title={course.title} description={course.description} price={course.price} link={course.imgageLink} id={course._id} />
+                      <Todos
+                        title={course.title}
+                        description={course.description}
+                        price={course.price}
+                        link={course.imgageLink}
+                        id={course._id}
+                      />
                     </CardContent>
                   </Card>
                 </Link>
@@ -137,5 +142,6 @@ function TodosDiv({ courses }: TodosDivProps) {
     </div>
   );
 }
+
 
 export default Purchased;
