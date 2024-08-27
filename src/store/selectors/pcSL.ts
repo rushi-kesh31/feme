@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { pcoursesState } from "../atoms/pcourses";
+import { pcourseState } from "../atoms/pcourses";
 
 export const pcLoadingState= selector({
     key:'pcLoadingState',
