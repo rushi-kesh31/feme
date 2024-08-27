@@ -9,7 +9,7 @@ function App() {
 {/*     <RecoilRoot> */}
     <Router>
 {/*             <Init/> */}
-            <Navbar/>
+{/*             <Navbar/> */}
             <Routes>
                 <Route path="/" element={<Landing />} />
 {/*                 <Route path="/:courseId" element={<Course />} />
