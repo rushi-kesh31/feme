@@ -4,7 +4,7 @@ import Landing from './Landing'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login'
 import Register from './Register'
-// import Course from './Course'
+import Course from './Course'
 import axios from 'axios'
 import Navbar from './Navbar';
 import {
@@ -12,8 +12,8 @@ import {
   useSetRecoilState,
 } from 'recoil';
 import { userState } from './store/atoms/user.ts';
-// import CourseList from './CourseList';
-// import Purchased from './Purchased';
+import CourseList from './CourseList';
+import Purchased from './Purchased';
 
 
 function App() {
@@ -26,9 +26,9 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path="/" element={<Landing />} />
-{/*                 <Route path="/:courseId" element={<Course />} />
+                <Route path="/:courseId" element={<Course />} />
+                <Route path="/purchased" element={<Purchased />} />
                 <Route path="/about" element={<CourseList />} />
-                <Route path="/purchased" element={<Purchased />} /> */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register/>} /> 
             </Routes>
