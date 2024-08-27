@@ -16,8 +16,6 @@ function Register(){
   const setUser= useSetRecoilState(userState);
   const [username, setTitle] = useState("");
   const [password, setDes] = useState("");
-  const[firstname,setfirtsname]=useState("");
-  const[lastname,setlastname]=useState("");
   const navigate = useNavigate();
 
 
@@ -29,10 +27,6 @@ function Register(){
             <div> 
               <Card sx={{ minWidth: 600 , padding:2}}>
                 <CardContent>
-                <TextField id="outlined-basic" label="firstName" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setfirtsname(e.target.value)}}/>
-                  <br/>
-                <TextField id="outlined-basic" label="lastName" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setlastname(e.target.value)}}/>
-                  <br/>
                   <TextField id="outlined-basic" label="username" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setTitle(e.target.value)}}/>
                   <br/>
 
@@ -42,7 +36,7 @@ function Register(){
                 <CardActions style={{ flexDirection: 'column' }}>
                  
                   <Button style={{width:'60%', padding:10,  margin:10, backgroundColor:'green'}} onClick= { async ()=>{
-                    const res= await axios.post('https://feb-pi.vercel.app/admin/signup', {firstName:firstname,lastName:lastname,username:username, password:password});
+                    const res= await axios.post('https://feb-pi.vercel.app/admin/signup', {username:username, password:password});
                     if (res.data.token){
                       localStorage.setItem('token', res.data.token);
                       setUser(res.data.username);
