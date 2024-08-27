@@ -94,7 +94,7 @@ interface Course {
 
 </Typography>
 
-  <Button size="large" sx={{ width:200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   onClick={() => Purchase(courseId)}  > Buy Now </Button>
+  <Button size="large" sx={{ width:200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   onClick={() => courseId && Purchase(courseId)}  > Buy Now </Button>
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
