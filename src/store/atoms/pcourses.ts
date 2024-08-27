@@ -1,12 +1,12 @@
 import { atom } from 'recoil';
 
 
-interface PCourseState {
+export interface PCState {
   isLoading: boolean;
   pcourse: []; // Assuming it's an array of courses
 }
 
-export const pcourseState = atom<PCourseState>({
+export const pcourseState = atom<PCState>({
   key: 'pcourseState',
   default: {
     isLoading: true,
