@@ -1,112 +1,82 @@
 import { selector } from "recoil";
-import { courseState } from "../atoms/course";
+import { courseState } from "../atoms/course.ts";
 
-export const courseLoading= selector({
-    key:'courseLoadingState',
-    get:({get})=>{
-        const state= get(courseState);
-        return state.isLoading;
-    }
-})
+export const courseLoading = selector({
+  key: 'courseLoadingState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.isLoading;
+  },
+});
 
-export const courseDetails= selector({
-  key:'courseDetailsState',
-  get:({get})=>{
-      const state= get(courseState);
-      return state.course;
-  }
-})
+export const courseDetails = selector({
+  key: 'courseDetailsState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course || null; // Return null if course doesn't exist
+  },
+});
 
-export const courseTitle= selector({
-    key:'courseTitleState',
-    get:({get})=>{
-        const state= get(courseState);
-        if(state.course){
-        return state.course.title;
-    }
-    return "";
-    }
-})
-
-
+export const courseTitle = selector({
+  key: 'courseTitleState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.title : ""; // Handle null case
+  },
+});
 
 export const courseDes = selector({
-    key: 'courseDesState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course){
-      return state.course.description;
-    }
-    return "";
-    }
-  })
-  
-  
-  export const coursePrice = selector({
-    key: 'coursePriceState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course.price;
-      }
-      return "";
-    },
-  });
-  
-  export const courseImage = selector({
-    key: 'courseImageState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course.imgageLink;
-      }
-      return "";
-    },
-  });
+  key: 'courseDesState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.description : "";
+  },
+});
 
-  export const coursePub = selector({
-    key: 'coursePubState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course.published;
-      }
-      return "";
-    },
-  });
+export const coursePrice = selector({
+  key: 'coursePriceState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.price : "";
+  },
+});
 
+export const courseImage = selector({
+  key: 'courseImageState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.imageLink : "";
+  },
+});
 
-  export const courseID = selector({
-    key: 'courseIDState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course._id;
-      }
-      return "";
-    },
-  });
+export const coursePub = selector({
+  key: 'coursePubState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.published : "";
+  },
+});
 
+export const courseID = selector({
+  key: 'courseIDState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course._id : "";
+  },
+});
 
-  export const productd = selector({
-    key: 'productdState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course.productd;
-      }
-      return "";
-    },
-  });
+export const productd = selector({
+  key: 'productdState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.productd : "";
+  },
+});
 
-
-  export const rating = selector({
-    key: 'ratingState',
-    get: ({get}) => {
-      const state = get(courseState);
-      if (state.course) {
-          return state.course.rating;
-      }
-      return "";
-    },
-  });
+export const rating = selector({
+  key: 'ratingState',
+  get: ({ get }) => {
+    const state = get(courseState);
+    return state.course ? state.course.rating : 0;
+  },
+});
