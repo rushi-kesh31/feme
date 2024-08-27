@@ -38,8 +38,10 @@ function Register(){
                   <Button style={{width:'60%', padding:10,  margin:10, backgroundColor:'green'}} onClick= { async ()=>{
                     const res= await axios.post('https://feb-pi.vercel.app/admin/signup', {username:username, password:password});
                     if (res.data.token){
-                      localStorage.setItem('token', res.data.token);
-                      setUser(res.data.username);
+                      setUser({
+                        username:res.data.username,
+                        isLoading:true
+                      });
                       navigate("/");
                      
                       }
