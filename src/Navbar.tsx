@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { userState } from './store/atoms/user.ts';
-// import LoginSignupModal from './loginmodal.jsx';
+import LoginSignupModal from './loginmodal.jsx';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -67,8 +67,7 @@ function Navbar() {
               </Button>
             </>
           ): (
-      <div>LoginSignupModal</div>
-            // <LoginSignupModal />
+            <LoginSignupModal />
           )}
         </div>
       </div>
