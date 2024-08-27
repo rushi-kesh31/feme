@@ -67,7 +67,6 @@ function Course() {
   }
 
   // Ensure img is always an array
-  const imageArray = Array.isArray(img) ? img : [img];
 
   return (
     <>
@@ -99,7 +98,7 @@ function Course() {
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
               <Slider {...settings}>
-                {imageArray.map((imageLink: string, index: number) => (
+                {img.map((imageLink: string, index: number) => (
                   <div key={index}>
                     <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
                   </div>
