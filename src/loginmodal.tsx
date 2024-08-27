@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Box, Button, Typography, Backdrop, colors } from '@mui/material';
+import { Modal, Box, Button, Typography, Backdrop } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const LoginSignupModal = () => {
