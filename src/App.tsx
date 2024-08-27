@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import './App.css'
 import Landing from './Landing'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Login'
-import Register from './Register'
-import Course from './Course'
+// import Login from './Login'
+// import Register from './Register'
+// import Course from './Course'
 import axios from 'axios'
 import Navbar from './Navbar';
 import {
@@ -12,8 +12,8 @@ import {
   useSetRecoilState,
 } from 'recoil';
 import { userState } from './store/atoms/user';
-import CourseList from './CourseList';
-import Purchased from './Purchased';
+// import CourseList from './CourseList';
+// import Purchased from './Purchased';
 
 
 function App() {
@@ -66,6 +66,7 @@ catch{
 useEffect(()=>{
   init();
 })
+  return null;
 }
 
 export default App
