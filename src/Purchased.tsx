@@ -44,7 +44,7 @@ const TextWrapper = styled('div')({
 
 function Purchased() {
   const [courses, setCourses] = useState<Course[]>([]);
-  const setPcourses = useSetRecoilState<PCourseState>(pcourseState);
+  const setPcourses = useSetRecoilState(pcourseState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,13 +113,13 @@ interface TodosDivProps {
 }
 
 function TodosDiv({ courses }: TodosDivProps) {
-  const purchasedCoursesIds = useRecoilValue<PCourseState>(pcourseState);
+  const purchasedCoursesIds = useRecoilValue<PCState>(pcourseState);
 
   return (
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
       <Grid container spacing={2}>
         {courses.map((course: Course) => {
-          return purchasedCoursesIds.includes(course._id) ? (
+          return purchasedCoursesIds.pcourse.includes(course._id) ? (
             <Grid item xs={4} key={course._id}>
               <Item>
                 <Link to={`/${course._id}`} style={{ textDecoration: 'none' }}>
