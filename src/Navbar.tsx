@@ -56,7 +56,7 @@ function Navbar() {
         </div>
         
         <div>
-          {!user || user.isLoading === undefined ? (
+          {!user || user.isLoading === false ? (
             <>
               <Button component={Link} to={`/purchased`} style={{ color: 'black', marginRight: 10 }}>
                 Orders
