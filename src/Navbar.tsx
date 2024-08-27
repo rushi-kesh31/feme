@@ -10,10 +10,11 @@ function Navbar() {
   const [user, setUser] = useRecoilState(userState);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-    navigate("/");
-  };
+  localStorage.removeItem('token');
+  setUser({ username: null, isLoading: false }); 
+  navigate("/");
+};
+
 
   return (
     <div style={{ backgroundColor: 'white' }}>
