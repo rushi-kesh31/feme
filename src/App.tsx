@@ -26,11 +26,11 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path="/" element={<Landing />} />
-                <Route path="/:courseId" element={<Course />} />
+{/*                 <Route path="/:courseId" element={<Course />} />
                 <Route path="/about" element={<CourseList />} />
                 <Route path="/purchased" element={<Purchased />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register/>} />
+                <Route path="/register" element={<Register/>} /> */}
             </Routes>
         </Router>
     </RecoilRoot>
