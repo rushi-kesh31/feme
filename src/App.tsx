@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css'
 import Landing from './Landing'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -7,7 +6,7 @@ function App() {
   
   return (
     <>
-    <RecoilRoot>
+{/*     <RecoilRoot> */}
     <Router>
 {/*             <Init/> */}
             <Navbar/>
@@ -20,7 +19,7 @@ function App() {
                 <Route path="/register" element={<Register/>} /> */}
             </Routes>
         </Router>
-    </RecoilRoot>
+{/*     </RecoilRoot> */}
   </>
   )
 }
