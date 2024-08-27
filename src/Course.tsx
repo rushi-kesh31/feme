@@ -38,7 +38,7 @@ function Course() {
   const title = useRecoilValue(courseTitle);
   const des = useRecoilValue(courseDes);
   const price = useRecoilValue(coursePrice);
-  const img = useRecoilValue(courseImage);
+  const images = useRecoilValue(courseImage);
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
 
@@ -98,7 +98,7 @@ function Course() {
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
               <Slider {...settings}>
-                {img.map((imageLink: string, index: number) => (
+                {images.map((imageLink: string, index: number) => (
                   <div key={index}>
                     <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
                   </div>
