@@ -3,7 +3,7 @@ import { atom } from 'recoil';
 
 export interface PCState {
   isLoading: boolean;
-  pcourse: []; // Assuming it's an array of courses
+  pcourse: string[]; // Assuming it's an array of courses
 }
 
 export const pcourseState = atom<PCState>({
