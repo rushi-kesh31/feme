@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { pcourseState, PCState } from './store/atoms/pcourses';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
+import Footer from "Footer";
 
 // Define types for course
 interface Course {
