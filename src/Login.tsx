@@ -27,7 +27,7 @@ function Login(){
                 </CardContent>
                 <CardActions style={{ flexDirection: 'column' }}>
                   <Button style={{width:'96%', margin:10}} variant="contained" size="small" onClick= {async ()=>{
-                    const res= await axios.post('https://feb-pi.vercel.app/admin/login', {username:username, password:password});
+                    const res= await axios.post('https://femessencebackend.vercel.app/admin/login', {username:username, password:password});
                     if (res.data.token){
                       localStorage.setItem('token', res.data.token);
                       setUser({
