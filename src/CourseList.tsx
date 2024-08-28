@@ -80,7 +80,7 @@ interface Course {
 }
 
 function TodosDiv({ courses }: { courses: Course[] }) {
-  return (
+  return (<>
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 {courses.map((course) => {
@@ -99,8 +99,10 @@ function TodosDiv({ courses }: { courses: Course[] }) {
           );
         })}
       </Grid>
-      <Footer />
     </div>
+    <Footer />
+    </>
+
   );
 }
 
