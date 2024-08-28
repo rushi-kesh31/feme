@@ -24,14 +24,6 @@ interface Course {
 }
 
 function Course() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true
-  };
   
   const { courseId } = useParams();
   const setCourse = useSetRecoilState(courseState);
@@ -78,7 +70,7 @@ function Course() {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex: number) => {
     setCurrentIndex(slideIndex);
   };
 
@@ -132,7 +124,7 @@ function Course() {
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className='flex top-4 justify-center py-2'>
-        {slides.map((slide, slideIndex) => (
+        {slides.map((_, slideIndex) => (
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
