@@ -17,7 +17,7 @@ interface Course {
   title: string;
   description: string;
   price: number;
-  imgageLink: string;
+  imageLink: string;
   published: boolean;
   _id: string;
   productd: string;
@@ -31,7 +31,7 @@ function Course() {
   const title = useRecoilValue(courseTitle);
   const des = useRecoilValue(courseDes);
   const price = useRecoilValue(coursePrice);
-  const slides = useRecoilValue(courseImage); // Ensure this contains valid image URLs
+  const slides = useRecoilValue(courseImage); 
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
 
@@ -106,7 +106,7 @@ function Course() {
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <div style={{ maxWidth: 700, margin: '0 auto' }}>
+            <div className='relative w-full h-full'>
               <div className='relative w-full h-full max-h-[700px] max-w-[700px] mx-auto group'>
                 <div
                   style={{ backgroundImage: `url(${slides[currentIndex]})` }}
@@ -144,5 +144,3 @@ function Course() {
     </>
   );
 }
-
-export default Course;
