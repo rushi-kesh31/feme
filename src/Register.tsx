@@ -43,7 +43,7 @@ function Register(){
                 <CardActions style={{ flexDirection: 'column' }}>
                  
                   <Button style={{width:'60%', padding:10,  margin:10, backgroundColor:'green'}} onClick= { async ()=>{
-                    const res= await axios.post('https://feb-pi.vercel.app/admin/signup', {firstName:firstname,lastName:lastname, username:username, password:password});
+                    const res= await axios.post('https://femessencebackend.vercel.app/admin/signup', {firstName:firstname,lastName:lastname, username:username, password:password});
                     if (res.data.token){
                       setUser({
                         username:res.data.username,
