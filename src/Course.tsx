@@ -11,7 +11,7 @@ import { RxDotFilled } from 'react-icons/rx';
 import Box from '@mui/material/Box';
 import { Divider, Grid } from '@mui/material'; 
 import { Purchase } from './Purchased';
-import Footer from './Footer';
+import Footer from "./Footer";
 
 interface Course {
   title: string;
@@ -25,14 +25,13 @@ interface Course {
 }
 
 function Course() {
-  
   const { courseId } = useParams();
   const setCourse = useSetRecoilState(courseState);
   const isLoading = useRecoilValue(courseLoading);
   const title = useRecoilValue(courseTitle);
   const des = useRecoilValue(courseDes);
   const price = useRecoilValue(coursePrice);
-  const slides = useRecoilValue(courseImage);
+  const slides = useRecoilValue(courseImage); // Ensure this contains valid image URLs
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
 
@@ -56,7 +55,6 @@ function Course() {
     func();
   }, [courseId, setCourse]);
 
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -75,23 +73,19 @@ function Course() {
     setCurrentIndex(slideIndex);
   };
 
-
-
-  
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  // Ensure img is always an array
-
   return (
     <>
-      <div style={{  marginTop: 100, marginLeft: 80, marginRight: 50 }}>
+      <div style={{ marginTop: 100, marginLeft: 80, marginRight: 50 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <div>
-              <Typography variant='h4' style={{ fontWeight: 500, fontFamily: "helvetica" }}>{title + " "}</Typography> <br />
-              <Typography style={{ color: "grey" }} variant='h6'>{des}</Typography> 
+              <Typography variant='h4' style={{ fontWeight: 500, fontFamily: "helvetica" }}>{title + " "}</Typography>
+              <br />
+              <Typography style={{ color: "grey" }} variant='h6'>{des}</Typography>
               <Box height={50} width={150} my={4} display="flex" alignItems="center" gap={4} p={2} sx={{ border: '2px solid grey' }}>
                 {rate} Stars
               </Box>
@@ -102,40 +96,46 @@ function Course() {
               <Typography variant='h6'>Product Description</Typography>
               <br />
               <Typography style={{ color: "grey" }} variant='h6'>{productdd}</Typography>
-              <Button 
-                size="large" 
-                sx={{ width: 200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   
+              <Button
+                size="large"
+                sx={{ width: 200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}
                 onClick={() => courseId && Purchase(courseId)}
-              > 
-                Buy Now 
+              >
+                Buy Now
               </Button>
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
-              <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
-      <div
-        style={{ backgroundImage: `url(${"https://www.skinome.com/cdn/shop/files/1x1_J_portratt.jpg?v=1718283247&width=2500"})` }}
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-      ></div>
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
-      </div>
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
-      </div>
-      <div className='flex top-4 justify-center py-2'>
-        {slides.map((_, slideIndex) => (
-          <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-            className='text-2xl cursor-pointer'
-          >
-            <RxDotFilled />
-          </div>
-        ))}
-      </div>
-    </div>
+              <div className='relative w-full max-w-[700px] h-[400px] mx-auto group'>
+                <div
+                  style={{ backgroundImage: `url(${slides[currentIndex]})` }}
+                  className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+                ></div>
+                
+                {/* Left Arrow */}
+                <div className='absolute top-[50%] left-5 -translate-y-1/2 bg-black/30 p-2 rounded-full cursor-pointer group-hover:block'>
+                  <BsChevronCompactLeft onClick={prevSlide} size={30} className='text-white' />
+                </div>
+
+                {/* Right Arrow */}
+                <div className='absolute top-[50%] right-5 -translate-y-1/2 bg-black/30 p-2 rounded-full cursor-pointer group-hover:block'>
+                  <BsChevronCompactRight onClick={nextSlide} size={30} className='text-white' />
+                </div>
+
+                {/* Dots */}
+                <div className='flex justify-center py-2'>
+                  {slides.map((_, slideIndex) => (
+                    <div
+                      key={slideIndex}
+                      onClick={() => goToSlide(slideIndex)}
+                      className={`text-2xl cursor-pointer ${slideIndex === currentIndex ? 'text-gray-800' : 'text-gray-400'}`}
+                    >
+                      <RxDotFilled />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </Grid>
         </Grid>
