@@ -33,7 +33,7 @@ function CourseList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('https://feb-pi.vercel.app/admin/courses', {
+      const res = await axios.get('https://femessencebackend.vercel.app/admin/courses', {
         headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
       });
       setCourses(res.data);
