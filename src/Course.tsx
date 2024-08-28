@@ -11,6 +11,7 @@ import { RxDotFilled } from 'react-icons/rx';
 import Box from '@mui/material/Box';
 import { Divider, Grid } from '@mui/material'; 
 import { Purchase } from './Purchased';
+import Footer from './Footer';
 
 interface Course {
   title: string;
@@ -139,6 +140,7 @@ function Course() {
           </Grid>
         </Grid>
       </div>
+      <Footer />
     </>
   );
 }
