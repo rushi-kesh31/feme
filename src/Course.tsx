@@ -107,7 +107,7 @@ function Course() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
-              <div className='relative w-full h-full mx-auto group'>
+              <div className='relative w-full h-full max-h-[700px] max-w-[700px] mx-auto group'>
                 <div
                   style={{ backgroundImage: `url(${slides[currentIndex]})` }}
                   className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
