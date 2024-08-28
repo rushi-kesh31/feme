@@ -82,7 +82,7 @@ function Purchased() {
 
 export function Purchase(courseid: string) {
   const pushPurchase = async () => {
-    await axios.post(`https://femessencebackend.vercel.app/user/courses/${courseid}`, {}, {
+    await axios.post(`https://femessencebackend.vercel.app/admin/courses/${courseid}`, {}, {
       headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
     });
   };
