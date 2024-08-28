@@ -38,7 +38,7 @@ function Course() {
 
   useEffect(() => {
     const func = () => {
-      axios.get(`https://feb2-seven.vercel.app/admin/courses`, {
+      axios.get(`https://femessencebackend.vercel.app/admin/courses`, {
         headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
       }).then((res) => {
         const foundCourse = res.data.find((course: Course) => course._id === courseId);
