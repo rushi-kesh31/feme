@@ -39,7 +39,7 @@ function Course() {
   const title = useRecoilValue(courseTitle);
   const des = useRecoilValue(courseDes);
   const price = useRecoilValue(coursePrice);
-  const images = useRecoilValue(courseImage);
+  const slides = useRecoilValue(courseImage);
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
 
@@ -133,6 +133,7 @@ function Course() {
       </div>
       <div className='flex top-4 justify-center py-2'>
         {slides.map((slide, slideIndex) => (
+      {console.log(slide}
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
