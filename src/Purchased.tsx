@@ -46,7 +46,7 @@ function Purchased() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('https://feb-pi.vercel.app/admin/courses', {
+      const res = await axios.get('https://femessencebackend.vercel.app/admin/courses', {
         headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
       });
       setCourses(res.data);
@@ -58,7 +58,7 @@ function Purchased() {
     const fetchData = async () => {
       setPcourses((prevState) => ({ ...prevState, isLoading: true }));
       try {
-        const res = await axios.get('https://feb-pi.vercel.app/admin/purchasedCourses', {
+        const res = await axios.get('https://femessencebackend.vercel.app/admin/purchasedCourses', {
           headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
         });
         setPcourses({
@@ -82,7 +82,7 @@ function Purchased() {
 
 export function Purchase(courseid: string) {
   const pushPurchase = async () => {
-    await axios.post(`https://feb-pi.vercel.app/user/courses/${courseid}`, {}, {
+    await axios.post(`https://femessencebackend.vercel.app/user/courses/${courseid}`, {}, {
       headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
     });
   };
