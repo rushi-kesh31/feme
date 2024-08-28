@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { Divider, Grid } from '@mui/material'; 
+import Footer from './Footer';
 
 function Landing() {
     return (
@@ -107,7 +108,7 @@ export function Lander() {
                     </Grid>
                 </Grid>
             </div>
-
+            <Footer />
         </>
     );
 }
