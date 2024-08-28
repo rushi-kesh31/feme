@@ -7,6 +7,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useSetRecoilState } from 'recoil';
 import { userState } from './store/atoms/user';
+import Footer from './Footer';
 
 function Login(){                                                                               
   const setUser= useSetRecoilState(userState);
@@ -41,6 +42,7 @@ function Login(){
             </div>
           </div>
         </div>
+        <Footer />
       </>
     )
 }
