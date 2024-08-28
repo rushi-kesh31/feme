@@ -80,7 +80,7 @@ function Course() {
 
   return (
     <>
-      <div style={{ marginTop: 100, marginLeft: 80, marginRight: 50 }}>
+      <div style={{ marginTop: 100, marginLeft: 80, marginRight: 50, marginBottom:150 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <div>
