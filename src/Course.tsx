@@ -17,7 +17,7 @@ interface Course {
   title: string;
   description: string;
   price: number;
-  imageLink: string;
+  imgageLink: string;
   published: boolean;
   _id: string;
   productd: string;
