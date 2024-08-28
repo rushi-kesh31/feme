@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -6,7 +6,8 @@ import axios from "axios";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { courseDes, courseImage, courseLoading, coursePrice, courseTitle, productd, rating } from "./store/selectors/courseSL";
 import { courseState } from "./store/atoms/course";
-import Slider from "react-slick";
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { RxDotFilled } from 'react-icons/rx';
 import Box from '@mui/material/Box';
 import { Divider, Grid } from '@mui/material'; 
 import { Purchase } from './Purchased';
@@ -62,6 +63,28 @@ function Course() {
     func();
   }, [courseId, setCourse]);
 
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
+
+
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -97,13 +120,29 @@ function Course() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <div style={{ maxWidth: 700, margin: '0 auto' }}>
-              <Slider {...settings}>
-                {images.map((imageLink: string, index: number) => (
-                  <div key={index}>
-                    <img src={imageLink} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
-                  </div>
-                ))}
-              </Slider>
+              <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
+      <div
+        style={{ backgroundImage: `url(${slides[currentIndex]})` }}
+        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+      ></div>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactLeft onClick={prevSlide} size={30} />
+      </div>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactRight onClick={nextSlide} size={30} />
+      </div>
+      <div className='flex top-4 justify-center py-2'>
+        {slides.map((slide, slideIndex) => (
+          <div
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className='text-2xl cursor-pointer'
+          >
+            <RxDotFilled />
+          </div>
+        ))}
+      </div>
+    </div>
             </div>
           </Grid>
         </Grid>
