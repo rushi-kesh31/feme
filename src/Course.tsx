@@ -13,16 +13,6 @@ import { Divider, Grid } from '@mui/material';
 import { Purchase } from './Purchased';
 import Footer from "./Footer";
 
-interface Course {
-  title: string;
-  description: string;
-  price: number;
-  imageLink: string;
-  published: boolean;
-  _id: string;
-  productd: string;
-  rating: number;
-}
 
 function Course() {
   const { courseId } = useParams();
@@ -144,3 +134,6 @@ function Course() {
     </>
   );
 }
+
+export default Course;
+
