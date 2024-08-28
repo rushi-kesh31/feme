@@ -133,7 +133,7 @@ function Course() {
       </div>
       <div className='flex top-4 justify-center py-2'>
         {slides.map((slide, slideIndex) => (
-      {console.log(slide}
+      {console.log(slide)}
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
