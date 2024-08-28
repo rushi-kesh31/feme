@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useSetRecoilState } from 'recoil';
 import { userState } from './store/atoms/user';
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer"
 
 
 
@@ -53,6 +54,7 @@ function Register(){
             </div>
           </div>
         </div>
+          <Footer />
         </>
     )
 }
