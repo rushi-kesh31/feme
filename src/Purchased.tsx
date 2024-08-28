@@ -127,7 +127,7 @@ function TodosDiv({ courses }: TodosDivProps) {
   }
 
   return (<>
-    <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
+    <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" , marginBottom: 500}}>
       <Grid container spacing={2}>
         {courses.map((course: Course) => {
           return purchasedCoursesState.pcourse.includes(course._id) ? (
