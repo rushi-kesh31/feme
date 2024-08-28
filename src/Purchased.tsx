@@ -125,7 +125,7 @@ function TodosDiv({ courses }: TodosDivProps) {
     return <div>Loading purchased courses...</div>;
   }
 
-  return (
+  return (<>
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
       <Grid container spacing={2}>
         {courses.map((course: Course) => {
@@ -151,6 +151,8 @@ function TodosDiv({ courses }: TodosDivProps) {
         })}
       </Grid>
     </div>
+    <Footer />
+    </>
   );
 }
 
