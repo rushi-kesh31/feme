@@ -14,6 +14,8 @@ import {
 import { userState } from './store/atoms/user.ts';
 import CourseList from './CourseList';
 import Purchased from './Purchased';
+import Aboutus from './Aboutus';
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
                 <Route path="/:courseId" element={<Course />} />
                 <Route path="/purchased" element={<Purchased />} />
                 <Route path="/about" element={<CourseList />} />
+                <Route path="/aboutus" element={<Aboutus />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register/>} /> 
             </Routes>
