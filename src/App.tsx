@@ -45,7 +45,7 @@ function Init() {
 
   const init= async() => {
     try{
-  const res= await axios.get('https://feb-pi.vercel.app/admin/me', {
+  const res= await axios.get('https://femessencebackend.vercel.app/admin/me', {
   headers: {"Authorization":`Bearer ${localStorage.getItem('token')}`}
   });
   if(res.data.username){
